@@ -1,0 +1,131 @@
+{
+  "name": "vscode-csharp-fold-visual",
+  "displayName": "VS2022风格的折叠展开及常用快捷修改",
+  "description": "VSCode C# 插件，VS2022风格的折叠展开及常用快捷修改",
+  "publisher": "yangnan",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yyyangnnnan/vscode-csharp-fold-visual.git"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onLanguage:csharp"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "foldToDefinition.fold",
+        "title": "折叠到定义"
+      },
+      {
+        "command": "foldToDefinition.unfold",
+        "title": "展开所有"
+      },
+      {
+        "command": "editor.action.formatDocument",
+        "title": "格式化文档"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "foldToDefinition.fold",
+        "key": "cmd+m cmd+o",
+        "when": "editorTextFocus && editorLangId == csharp"
+      },
+      {
+        "command": "foldToDefinition.unfold",
+        "key": "cmd+m cmd+l",
+        "when": "editorTextFocus && editorLangId == csharp"
+      },
+      {
+        "command": "editor.action.formatDocument",
+        "key": "cmd+k cmd+d",
+        "when": "editorTextFocus && editorLangId == csharp"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "foldToDefinition.fold",
+          "group": "navigation",
+          "when": "editorLangId == csharp"
+        },
+        {
+          "command": "foldToDefinition.unfold",
+          "group": "navigation",
+          "when": "editorLangId == csharp"
+        },
+        {
+          "command": "editor.action.formatDocument",
+          "group": "navigation",
+          "when": "editorLangId == csharp"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "foldToDefinition.fold",
+          "when": "resourceExtname == .cs",
+          "group": "navigation"
+        },
+        {
+          "command": "foldToDefinition.unfold",
+          "when": "resourceExtname == .cs",
+          "group": "navigation"
+        },
+        {
+          "command": "editor.action.formatDocument",
+          "when": "resourceExtname == .cs",
+          "group": "navigation"
+        }
+      ],
+      "breadcrumb/fileContext": [
+        {
+          "command": "foldToDefinition.fold",
+          "group": "navigation",
+          "when": "editorLangId == csharp"
+        },
+        {
+          "command": "foldToDefinition.unfold",
+          "group": "navigation",
+          "when": "editorLangId == csharp"
+        },
+        {
+          "command": "editor.action.formatDocument",
+          "group": "navigation",
+          "when": "editorLangId == csharp"
+        }
+      ],
+      "breadcrumb/crumbContext": [
+        {
+          "command": "foldToDefinition.fold",
+          "group": "navigation",
+          "when": "editorLangId == csharp"
+        },
+        {
+          "command": "foldToDefinition.unfold",
+          "group": "navigation",
+          "when": "editorLangId == csharp"
+        },
+        {
+          "command": "editor.action.formatDocument",
+          "group": "navigation",
+          "when": "editorLangId == csharp"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "npm run compile",
+    "package": "npm run compile && bash ./scripts/package-and-install.sh"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0"
+  }
+}

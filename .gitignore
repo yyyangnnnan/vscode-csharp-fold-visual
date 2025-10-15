@@ -1,0 +1,35 @@
+# Node dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# VSCode configuration
+.vscode/
+.history/
+
+# TypeScript build output
+out/
+dist/
+*.js
+*.js.map
+
+# Mac system files
+.DS_Store
+
+# Logs
+*.log
+
+# VSCode test files
+.vscode-test/
+
+# Optional npm cache directory
+.npm/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Ignore vsce packaging artifacts
+*.vsix
